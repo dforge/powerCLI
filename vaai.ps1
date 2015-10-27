@@ -14,7 +14,7 @@ Write-Host "                                       " –foregroundcolor "White"
 Write-Host "#######################################" –foregroundcolor "White"
 Write-Host "#                                      " –foregroundcolor "White"
 Write-Host "# Installed VAAI Plugin                " –foregroundcolor "White"
-Write-Host "# Shwo host where plugin is installed  " –foregroundcolor "White"
+Write-Host "# Show host where plugin is installed  " –foregroundcolor "White"
 Write-Host "#                                      " –foregroundcolor "White"
 Write-Host "#######################################" –foregroundcolor "White"
 
