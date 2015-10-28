@@ -1,7 +1,7 @@
 ###
 $vCenter    = "<VCENTER>"
 $vLogs      = "C:\Docs\Temp\"
-$vDC        = "<DATACENTER>"
+$vDC        = "<DC>"
 
 ###
 connect-viserver -Server $vCenter
@@ -24,8 +24,8 @@ foreach($vCluster in $vClusters) {
     $vHosts = Get-VMHost -Location $vCluster
     foreach($vHost in $vHosts) {
 
-        $hostCli = Get-EsxCli -VMHost $vHost
-        if(($hostCli.software.vib.list() | ? {$_.Name -like "*vaai*"}).Name -eq "hp_vaaip_for_esxi5_p9000") {
+        $ID = ((Get-EsxCli -VMHost s-esxi55-a-13-2.rttv.ru).software.vib.list() | ? {$_.Name -like "*vaai*"}).ID
+        if($ID -ne $null -and $ID -like "*vaai*") {
             Write-Host $vHost.Name –foregroundcolor "Red"
         }
     }
