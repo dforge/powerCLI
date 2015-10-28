@@ -49,7 +49,7 @@ foreach($vCluster in $vClusters) {
         $hal = (Get-AdvancedSetting -Entity $vHost -Name VMFS3.HardwareAcceleratedLocking).Value
         $hai = (Get-AdvancedSetting -Entity $vHost -Name DataMover.HardwareAcceleratedInit).Value
         $ham = (Get-AdvancedSetting -Entity $vHost -Name DataMover.HardwareAcceleratedMove).Value
-        if($hai -ne 1 -and $hal -ne 1 -and $ham -ne 1) {
+        if( $hai -ne 1 -Or $hal -ne 1 -Or $ham -ne 1 ) {
             Write-Host $vHost.Name –foregroundcolor "Red"
         }
     }
